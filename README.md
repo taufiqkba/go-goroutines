@@ -5,3 +5,4 @@
 - Concurrency
 - CPU-bound VS I/O bound
 - Goroutines
+- Channel
