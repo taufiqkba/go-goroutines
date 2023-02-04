@@ -16,8 +16,8 @@ func TestOnce(t *testing.T) {
 	once := sync.Once{}
 	group := sync.WaitGroup{}
 	for i := 0; i < 100; i++ {
+		group.Add(1) // put group add before goroutines to avoid race-condition
 		go func() {
-			group.Add(1)
 			once.Do(OnlyOnce)
 			group.Done()
 		}()
